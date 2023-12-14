@@ -10,6 +10,8 @@ Undoubtably one of the most intriguing Ada project of the Fall '23 season, "The 
 - Nicolas Perez, Exchange student from TU Delft
 - Carolina Marugan Rubio, Exchange student from UPV
 
+--IF TIME ADD AI GEN PIC OF US--
+
 <!-- 
 <figure>
   <img alt="Christopher Hitchens" src="https://upload.wikimedia.org/wikipedia/commons/6/63/Christopher_Hitchens_2008-04-24_001.jpg" />

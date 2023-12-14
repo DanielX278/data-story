@@ -25,6 +25,13 @@ github_username:  patdryburgh
 
 ignore_theme_config: true
 
+collections:
+  mycollection:
+    output: true
+    order: reverse
+
+
+
 # Build settings
 markdown: kramdown
 

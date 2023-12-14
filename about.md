@@ -6,7 +6,7 @@ title: About
 Undoubtably one of the most intriguing Ada project of the Fall '23 season, "The Man and the Machine" has been realized by the AMonAVIS team:
 - Daniele Belfiore, MSc in Digital Humanities @ EPFL
 - Sophea Bonne, MSc in Management of Technology and Entrepreneurship @ EPFL
-- Carlos , MSc in Computational Science and Engineering @ EPFL
+- Carlos Collado Capell, MSc in Computational Science and Engineering @ EPFL
 - Nicolas Perez, Exchange student from TU Delft
 - Carolina Marugan Rubio, Exchange student from UPV
 

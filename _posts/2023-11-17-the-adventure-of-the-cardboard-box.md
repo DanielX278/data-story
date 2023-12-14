@@ -6,7 +6,9 @@ author: "AmonAVIS"
 
 # IT'S JUST DRAFT DW
 
-Over the centuries, humans proved themselves to be a social animal. On one hand, progress always led us to cooperate and form communities. On the other hand, we can hardly deal with loneliness: may it be for love, for friendship, or an innate competitive spirit, we would always find new ways to interact with each other.
+Over the centuries, humans proved themselves to be a social animal. 
+
+On one hand, progress always led us to cooperate and form communities. On the other hand, we can hardly deal with loneliness: may it be for love, for friendship, or an innate competitive spirit, we would always find new ways to interact with each other.
 
 In this innate competitive spirit, games found their quintessential opportunity to rise: may it be to enjoy a fun break or to achieve a prize we longed for, we love winning. We cannot stand a loss.
 

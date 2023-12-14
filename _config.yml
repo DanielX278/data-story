@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Prova Prova
+title: The Man and the Machine
 email: hello@patdryburgh.com
 description: >- # this means to ignore newlines until "baseurl:"
-  An inarguably well-designed Jekyll theme.
+  A wikispeedia duel to 
 baseurl: "/data-story" # the subpath of your site, e.g. /blog
 url: "https://danielx278.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 icon: /assets/images/icon-512.png
@@ -43,5 +43,5 @@ markdown: kramdown
 plugins:
   - jekyll-paginate
 
-paginate: 2
+paginate: 3
 paginate_path: "/page/:num/"

@@ -4,7 +4,7 @@ title: "What is going on?"
 author: "AmonAVIS"
 ---
 
-# IT'S JUST DRAFT
+# IT'S JUST A DRAFT
 
 Over the centuries, humans proved themselves to be a social animal. 
 

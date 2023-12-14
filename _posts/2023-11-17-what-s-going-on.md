@@ -19,9 +19,9 @@ However, it's the same progress that we seek everyday that is now turning its ba
 If it's true that machines are our best friends when they help us in daily tasks, when help us predict diseases or protect our transactions through their countless computations, it is also true that they are becoming more and more able to counter our top-tier techniques and strategies.
 
 Historically, we are not playing well:
-- *1997, _DeepBlue and Garry Kasparov:_* the first computer to win a chess game against the world champion
-- *2016, _AlphaGo vs Lee Sedol_* the first computer to win a Go game against the world champion
-- *2017,* AlphaGo Zero and AlphaZero are the first generalised algorithms without human data to achieve superhuman levels in chess, shogi and Go.
+- **1997, _DeepBlue and Garry Kasparov:_** the first computer to win a chess game against the world champion
+- **2016, _AlphaGo vs Lee Sedol_** the first computer to win a Go game against the world champion
+- **2017,** AlphaGo Zero and AlphaZero are the first generalised algorithms without human data to achieve superhuman levels in chess, shogi and Go.
 
 ## What can we do?
 

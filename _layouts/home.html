@@ -64,7 +64,7 @@ layout: default
   {% else %}
 
     <ul class="post-list">
-      {% for post in site.posts %}
+      {% for post in site.posts reversed %}
         {% include post-list-item.html %}
       {% endfor %}
     </ul>

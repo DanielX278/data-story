@@ -12,6 +12,8 @@ We start from dataset that collected many data from users playing the Wikispeedi
 
 Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a low portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like "Europe" and "France" (with more than 1000 connections) or "World War II" (with morre than 500 and less than 1000 connections). At the same time, we identify 13 nodes with just one connection, and 1581 with a degree lower than 20.
 
+<embed type="text/html" src="../assets/images/Plotly_distr_cat.html" width="500" height="200">
+
 [PageRank????]
 
 Out of 76193 games, we have 51318 finished games and 24875 unfinished ones. Of those, 47856 paths are unique. Data is collected until 2014, and the majority of games has been played in Q3 2009, with just 24% of them being completed sessions. With some further analysis, we looked for the categories of target articles with the highest counts of unfinished paths, and found that "Science", "Everyday life" and "Geography" are the three that most of the players seem to give up on. However, we must take into account that "Science" is the category with the highest number of articles, which means that we cannot conclude that the "Science" articles are the hardest to find in the game.

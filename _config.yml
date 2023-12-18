@@ -28,10 +28,11 @@ ignore_theme_config: true
 
 # Build settings
 markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
-  unsafe: true # This allows HTML tags to be rendered directly
+
+#kramdown:
+#  input: GFM
+#  hard_wrap: false
+#  unsafe: true # This allows HTML tags to be rendered directly
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

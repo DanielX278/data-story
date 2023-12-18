@@ -15,6 +15,7 @@ Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes'
 <embed type="text/html" src="../assets/images/Plotly_distr_cat.html" width="500" height="200">
 <iframe src="../assets/images/Plotly_distr_cat.html" width="100%" height="500px"></iframe>
 
+{% include Plotly_distr_cat.html %}
 
 [PageRank????oooooo]
 

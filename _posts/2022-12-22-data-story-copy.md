@@ -26,7 +26,6 @@ prova
 {% include Plotly_man_len_avgs.html %}
 {% include Plotly_finished_paths_categories.html %}
 {% include Plotly_network_higher_degree.html %}
-{% include Plotlu_distr_cat.html %}
 {% include Plotly_unfinished_paths_categories.html %}
 {% include Plotly_man_v_mac.html %}
 

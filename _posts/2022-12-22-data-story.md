@@ -12,9 +12,6 @@ We start from dataset that collected many data from users playing the Wikispeedi
 
 Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a low portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like "Europe" and "France" (with more than 1000 connections) or "World War II" (with morre than 500 and less than 1000 connections). At the same time, we identify 13 nodes with just one connection, and 1581 with a degree lower than 20.
 
-<embed type="text/html" src="../assets/images/Plotly_distr_cat.html" width="500" height="200">
-<iframe src="../assets/images/Plotly_distr_cat.html" width="100%" height="500px"></iframe>
-
 {% include Plotly_distr_cat.html %}
 
 [PageRank????oooooo]

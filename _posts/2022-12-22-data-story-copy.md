@@ -20,15 +20,6 @@ We additionally have the advantage that this is a solved game. The shortest path
 
 # Graph storm
 
-{% include Plotly_network_pagerank.html %}
-{% include Plotly_man_len_avgs.html %}
-{% include Plotly_finished_paths_categories.html %}
-{% include Plotly_Average Finished Path Length by Category of Machine vs Man.html %}
-{% include Plotly_network_higher_degree.html %}
-{% include Plotlu_distr_cat.html %}
-{% include Plotly_unfinished_paths_categories.html %}
-{% include Plotly_man_v_mac.html %}
-{% include Plotly_distr_cat.html %}
 
 
 

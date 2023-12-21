@@ -18,6 +18,19 @@ We additionally have the advantage that this is a solved game. The shortest path
 * Is there any way to characterize these differences in performance? Categories, semantic distance, path length, or something else?
 * How do these compare to the optimal path?
 
+# Graph storm
+
+{% include Plotly_network_pagerank.html %}
+{% include Plotly_man_len_avgs.html %}
+{% include Plotly_finished_paths_categories.html %}
+{% include Plotly_Average Finished Path Length by Category of Machine vs Man.html %}
+{% include Plotly_network_higher_degree.html %}
+{% include Plotlu_distr_cat.html %}
+{% include Plotly_unfinished_paths_categories.html %}
+{% include Plotly_man_v_mac.html %}
+{% include Plotly_distr_cat.html %}
+
+
 
 # Study of the game 
 
@@ -113,8 +126,15 @@ Out of the unfinished human games that the Semantic Rank algorithm attempted, it
 
 ## References
 1)  "AlphaGo Movie". AlphaGo Movie. Archived from the original on 3 January 2018. Retrieved 14 October 2017.
+
 2) Erly, A. (2021) The Original Chess Engine: Alan Turing’s Turochamp, Chess.com. Available at: https://www.chess.com/blog/the_real_greco/the-original-chess-engine-alan-turings-turochamp (Accessed: 21 December 2023).
+
 3) Deep Blue (no date) IBM. Available at: https://www.ibm.com/history/deep-blue (Accessed: 21 December 2023).
+
 4) "Wikispeedia: An Online Game for Inferring Semantic Distances between Concepts". Robert West, Joelle Pineau, and Doina Precup 21st International Joint Conference on Artificial Intelligence (IJCAI), 2009.
+
 5) Potamias, Michalis, et al. "Fast shortest path distance estimation in large networks." Proceedings of the 18th ACM conference on Information and knowledge management. 2009.
+
 6) https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+
+

@@ -25,10 +25,12 @@ prova
 {% include Plotly_network_pagerank.html %}
 {% include Plotly_man_len_avgs.html %}
 {% include Plotly_finished_paths_categories.html %}
+{% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
 {% include Plotly_network_higher_degree.html %}
+{% include Plotlu_distr_cat.html %}
 {% include Plotly_unfinished_paths_categories.html %}
 {% include Plotly_man_v_mac.html %}
-
+{% include Plotly_distr_cat.html %}
 
 # Study of the game 
 

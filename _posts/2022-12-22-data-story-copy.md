@@ -24,15 +24,42 @@ prova
 {% include Plotly_network_pagerank.html %}
 {% include Plotly_man_len_avgs.html %}
 {% include Plotly_finished_paths_categories.html %}
+{% include histogram_pagerank.png %}
+{% include tsne_landmark.png %}
+{% include Plotly_appearances_in_paths_versus_degree.html %}
+{% include PageRankTop80.png %}
+{% include count_vs_degree.png %}
 {% include Plotly_network_higher_degree.html %}
 {% include Plotly_avg_lengths.html %}
+{% include Plotly_distr_finished_path_length_25_humans.html %}
+{% include PageRankAboveMedian.png %}
 {% include Plotly_normalized_category_counts_unfinished.html %}
+{% include perfect_count_vs_degree.png %}
+{% include histogram_shortest_optimal.png %}
 {% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
-
+{% include histogram_landmark.png %}
+{% include Plotly_distr_finished_path_length_humans.html %}
+{% include Plotly_category_counts_unfinished.html %}
+{% include tsne_semantic_rank.png %}
+{% include Plotly_category_counts_finished.html %}
+{% include DegreeTop.png %}
+{% include Plotlu_distr_cat.html %}
+{% include HigherDegree60.png %}
+{% include perfect_count_vs_pagerank.png %}
 {% include Plotly_unfinished_paths_categories.html %}
+{% include Plotly_counts_graph.html %}
+{% include PageRankClassificationAll.png %}
 {% include Plotly_normalized_category_counts_finished.html %}
 {% include Plotly_man_v_mac.html %}
+{% include Plotly_PageRank40.html %}
+{% include human_count_vs_degree.png %}
+{% include AveragePageRank60.png %}
 {% include Plotly_distr_cat.html %}
+{% include PageRankArtAboveAverage.png %}
+{% include histogram_human_lengths.png %}
+{% include tsne_optimal.png %}
+{% include human_pagerank_vs_count.png %}
+
 
 # Study of the game 
 
@@ -45,7 +72,6 @@ For starters, we will work on analyzing the information contained in the graph, 
 The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with more than 500 and less than 1000 connections). At the same time, we identify 13 nodes with just one connection, and 1581 nodes with a degree lower than 20.
 
 
-{% include Plotly_distr_cat.html %}
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 

@@ -4,16 +4,19 @@ title: "Data story"
 author: "AMonAVIS"
 ---
 
-When AlphaGo defeated Lee Sedol in 2016, this caused a shake up in the AI world <sup>1</sup>. For years, the idea
-of having an AI beat a human in Go was deemed impossible, but advancements in the field allowed this impossible dream to
-become a reality.
+The Man and the Machine focuses on this competition, comparing humans to an AI or algorithm constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the entire Wikipedia network, find all the shortest paths, and store them. The algorithms we have designed to do so try to simulate rational human thinking. To compete under similar rules, the AI should only have access to the next neighbors of the directed graph, just like a human playing the game. Additionally, these AI won’t learn from the data, but will use predefined rules and logic to make decisions.
 
- Having AI compete against humans has been a core part of AI research since the dawn of computers themselves. Alan Turing
-himself worked on the first chess engine <sup>2</sup>, and the victory of Deep Blue over Garry Kasparov marked a change
-in the way we see computers. They are as good, or even better, than our best <sup>3</sup>.
+Our project starts from human navigation paths, defined by the users playing the Wikispeedia game. We then create a machine and analyze its navigation ability. We use several hand designed heuristics, and ask– how differently will these entities approach this same Wikispeedia game? Can machines get insights that we humans are not easily able to find? Will these machines be better than humans at playing the game?
 
-Now, we will put AI to the test in a different game: Wikispeedia (also known as The Wikipedia Game) <sup>4</sup>.
+Additionally, we have the advantage that this is a solved game. The shortest path between two nodes can be found exactly through methods like Dijkstra’s algorithm. This allows us to not only compare our solutions to human play, but also to the best possible answer.
 
+## Research questions
+* Which heuristics are best at predicting the shortest path in the Wikispeedia graph?
+* Do any of these heuristics outperform humans?
+* Can we identify any patterns or recurring structures in the human paths (ie. going for a central hub)?
+* What insights can we draw from the cases where human paths outperform the machine ones? And vice versa?
+* Is there any way to characterize these differences in performance? Categories, semantic distance, path length, or something else?
+* How do these compare to the optimal path?
 
 # Graph storm
 
@@ -61,20 +64,6 @@ Now, we will put AI to the test in a different game: Wikispeedia (also known as 
 ![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
 ![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
 
-The Man and the Machine focuses on this competition, comparing humans to an AI constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the dataset, find all shortest paths, and store them.
-
-Our project starts from human navigation paths, defined by the users playing the Wikispeedia game. We then create a machine and analyze its navigation ability. We use several hand designed heuristics, and ask– how differently will these entities approach this same Wikispeedia game? Can machines get insights that we humans are not easily able to find? Will these machines be better than humans at playing the game?
-
-Additionally, we have the advantage that this is a solved game. The shortest path between two nodes can be found exactly through methods like Dijkstra’s algorithm. This allows us to not only compare our solutions to human play, but also to the best possible answer.
-
-
-## Research questions
-* Which heuristics are best at predicting the shortest path in the Wikispeedia graph?
-* Do any of these heuristics outperform humans?
-* Can we identify any patterns or recurring structures in the human paths (ie. going for a central hub)?
-* What insights can we draw from the cases where human paths outperform the machine ones? And vice versa?
-* Is there any way to characterize these differences in performance? Categories, semantic distance, path length, or something else?
-* How do these compare to the optimal path?
 
 
 

@@ -65,6 +65,33 @@ We redid the plot only taking in the players that took less than 25. This arbitr
 
 {% include hist_human.html %}
 
+## Good predictors of importance
+In the original paper \[4\], the authors outline that humans give a priority to hubs when exploring which might not always be optimal. While this can be shown to be trivially true, it’s interesting to ask the following: Are hubs actually helpful for finding the shortest paths? Do humans use hubs?
+
+We note that the original authors only describe hubs as those articles with a high degree. Is this the only definition of hub, or is there an alternative definition that is valid as well? We will investigate these elements.
+
+First off, do humans actually use hubs? We will plot the appearance count, versus the degree of the nodes. For the count, we ignore a node if it is a source or a target node. Additionally, we only use finished paths.
+
+{% include Plotly_appearances_in_paths_versus_degree.html %}
+
+You can see there is some relation, and the fitted line gives high values. Does this hold up statistically? We will do a regression analysis, finding the relation between count and degree. These are the results we obtain:
+
+Based on the regression analysis, there is a correlation between how often a node is used in the paths and the degree. So this idea of players using a hub is definitely common for the human dataset.
+
+We can also see that there is a high R squared, considering there is only one variable. So the degree does help explain how often it will appear in the paths.
+
+Now, does this actually hold for the shortest paths?
+
+While the R squared is lower, it is still quite high in this case. Most importantly, it also shows that there is a correlation between the degree and the number of times it appears in a shortest path! This implies that hubs are actually very helpful for finding out the path between two nodes, and are commonly used.
+
+This is something that can be used in our AI, and will be taken into account.
+
+Although we have already found that these hubs are actually very relevant, we want to explore if any other definitions are also valid. Namely, we want to see if the pagerank has an important correlation between the two values.
+
+By comparison, PageRank has a slightly lower r squared score when it comes to the actual shortest path. This is a bit bizarre as PageRank has more info and is a more robust metric. It is still valid, it still has a high correlation and is still a decent explanation. But it is worse than just using the default degree. A possible explanation for this behavior is that Wikipedia articles (nodes) with a high PageRank are general topics, so it can be more challenging to find links to more specific topics, which are likely to be the target articles.
+
+Another interesting point to consider is how important it is to approach similar topics to reach the target. To investigate this, we explore the semantic similarity between the target and the neighboring nodes (i.e. articles which have a connection to the target). This can give us insights on whether humans try to reach neighboring nodes with higher semantic similarity to approach the target, or if by the contrary, it they stick with topics with a high PageRank or node degree, and the cost of lower semantic similarity. We can then compare it to the shortest paths.
+
 # Graph storm
 
 {% include Plotly_man_len_avgs.html %}
@@ -109,61 +136,6 @@ We redid the plot only taking in the players that took less than 25. This arbitr
 ![ols2_degree_value.png]({{ '/assets/images/ols2_degree_value.png' | relative_url }})
 ![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
 ![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
-
-
-
-
-
-# Study of Man 
-
-## Path information
-
-Out of 76193 games, we have 51318 finished games and 24875 unfinished ones. Of those, 47856 paths are unique. Data is collected until 2014, and the majority of games has been played in Q3 2009, with just 24% of them being completed sessions. With some further analysis, we looked for the categories of target articles with the highest counts of unfinished paths, and found that "Science", "Everyday life" and "Geography" are the three that most of the players seem to give up on. However, we must take into account that "Science" is the category with the highest number of articles, which means that we cannot conclude that the "Science" articles are the hardest to find in the game.
-
-First, we want to get an idea of what are the most common finished, and unfinished paths. For starters, we’ll plot the target location only.
-
-
-
-Between these two graphs, we can see that there are some differences in distribution. The actual frequency value should be ignored, as there are more finished than unfinished paths. It is interesting to note that it seems that geography is much more common in finished paths, this might be because geography nodes tend to be very common.
-
-
-This graph seems wrong, as the X axis is incredibly skewed. We checked in detail why this was happening, and found that there are people that are really stubborn while playing the game. In particular, one poor fellow visited 435 different pages trying to find a link between “United States” and “English Language”. Which is slightly unrelated, but is rather hilarious as a find. At the very least, the guy is stubborn and manages to find a link eventually.
-
-We redid the plot only taking in the players that took less than 25. This arbitrary value was chosen just for visualization purposes.
-
-
-
-
-## Good predictors of importance
-In the original paper \[4\], the authors outline that humans give a priority to hubs when exploring which might not always be optimal. While this can be shown to be trivially true, it’s interesting to ask the following: Are hubs actually helpful for finding the shortest paths? Do humans use hubs?
-
-We note that the original authors only describe hubs as those articles with a high degree. Is this the only definition of hub, or is there an alternative definition that is valid as well? We will investigate these elements.
-
-First off, do humans actually use hubs? We will plot the appearance count, versus the degree of the nodes. For the count, we ignore a node if it is a source or a target node. Additionally, we only use finished paths.
-
-
-
-
-You can see there is some relation, and the fitted line gives high values. Does this hold up statistically? We will do a regression analysis, finding the relation between count and degree. These are the results we obtain:
-
-Based on the regression analysis, there is a correlation between how often a node is used in the paths and the degree. So this idea of players using a hub is definitely common for the human dataset.
-
-We can also see that there is a high R squared, considering there is only one variable. So the degree does help explain how often it will appear in the paths.
-
-Now, does this actually hold for the shortest paths?
-
-
-While the R squared is lower, it is still quite high in this case. Most importantly, it also shows that there is a correlation between the degree and the number of times it appears in a shortest path! This implies that hubs are actually very helpful for finding out the path between two nodes, and are commonly used.
-
-This is something that can be used in our AI, and will be taken into account.
-
-Although we have already found that these hubs are actually very relevant, we want to explore if any other definitions are also valid. Namely, we want to see if the pagerank has an important correlation between the two values.
-
-
-
-By comparison, PageRank has a slightly lower r squared score when it comes to the actual shortest path. This is a bit bizarre as PageRank has more info and is a more robust metric. It is still valid, it still has a high correlation and is still a decent explanation. But it is worse than just using the default degree. A possible explanation for this behavior is that Wikipedia articles (nodes) with a high PageRank are general topics, so it can be more challenging to find links to more specific topics, which are likely to be the target articles.
-
-Another interesting point to consider is how important it is to approach similar topics to reach the target. To investigate this, we explore the semantic similarity between the target and the neighboring nodes (i.e. articles which have a connection to the target). This can give us insights on whether humans try to reach neighboring nodes with higher semantic similarity to approach the target, or if by the contrary, it they stick with topics with a high PageRank or node degree, and the cost of lower semantic similarity. We can then compare it to the shortest paths.
 
 
 

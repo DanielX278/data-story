@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "NEWWWW What is going on?"
+title: "What is going on?"
 author: "AmonAVIS"
 ---
 

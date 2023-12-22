@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "NEWWWW Data story"
+title: "Data story"
 author: "AMonAVIS"
 ---
 # Graph storm
@@ -44,7 +44,10 @@ author: "AMonAVIS"
 ![tsne_optimal.png]({{ '/assets/images/tsne_optimal.png' | relative_url }})
 ![human_pagerank_vs_count.png]({{ '/assets/images/human_pagerank_vs_count.png' | relative_url }})
 
-
+![ols1_degree_count.png]({{ '/assets/images/ols1_degree_count.png' | relative_url }})
+![ols2_degree_value.png]({{ '/assets/images/ols2_degree_value.png' | relative_url }})
+![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
+![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
 
 The Man and the Machine focuses on this competition, comparing humans to an AI constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the dataset, find all shortest paths, and store them.
 

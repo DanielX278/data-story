@@ -32,7 +32,7 @@ The first part of the game we analyze is the degree of the nodes. The degree of 
 
 Let’s visualize what the nodes with the highest degree look like.
 
-![HigherDegree60]({{ '/assets/images/HigherDegree60.png' | relative_url }})
+![HigherDegree60.png]({{ '/assets/images/HigherDegree60.png' | relative_url }})
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 
@@ -145,23 +145,21 @@ Characterizing the paths taken by the methods could also lead to interesting res
 
 Based on some research… no. At least, no easy way was found.
 
-We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the optimal values. This is the plot that we obtained:
+We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the Landmark, PageRank, and the optimal values. These are the plots that we obtained:
 
 {% include Plotly_optimal_tsne_length_plot.html %}
+![tsne_landmark.png]({{ '/assets/images/tsne_landmark.png' | relative_url }})
 
 # Graph storm
 
 {% include Plotly_man_len_avgs.html %}
 {% include Plotly_finished_paths_categories.html %}
-![histogram_pagerank.png]({{ '/assets/images/histogram_pagerank.png' | relative_url }})
-![tsne_landmark.png]({{ '/assets/images/tsne_landmark.png' | relative_url }})
 {% include Plotly_appearances_in_paths_versus_degree.html %}
 ![PageRankTop80.png]({{ '/assets/images/PageRankTop80.png' | relative_url }})
 ![count_vs_degree.png]({{ '/assets/images/count_vs_degree.png' | relative_url }})
 {% include Plotly_network_higher_degree.html %}
 {% include Plotly_avg_lengths.html %}
 {% include Plotly_distr_finished_path_length_25_humans.html %}
-![PageRankAboveMedian.png]({{ '/assets/images/PageRankAboveMedian.png' | relative_url }})
 {% include Plotly_normalized_category_counts_unfinished.html %}
 ![perfect_count_vs_degree.png]({{ '/assets/images/perfect_count_vs_degree.png' | relative_url }})
 ![histogram_shortest_optimal.png]({{ '/assets/images/histogram_shortest_optimal.png' | relative_url }})
@@ -177,12 +175,10 @@ We did come up with an idea which is as follows: get the mean embedding of each 
 ![perfect_count_vs_pagerank.png]({{ '/assets/images/perfect_count_vs_pagerank.png' | relative_url }})
 {% include Plotly_unfinished_paths_categories.html %}
 {% include Plotly_counts_graph.html %}
-![PageRankClassificationAll.png]({{ '/assets/images/PageRankClassificationAll.png' | relative_url }})
 {% include Plotly_normalized_category_counts_finished.html %}
 {% include Plotly_man_v_mac.html %}
 {% include Plotly_PageRank40.html %}
 ![human_count_vs_degree.png]({{ '/assets/images/human_count_vs_degree.png' | relative_url }})
-![AveragePageRank60.png]({{ '/assets/images/AveragePageRank60.png' | relative_url }})
 {% include Plotly_distr_cat.html %}
 ![PageRankArtAboveAverage.png]({{ '/assets/images/PageRankArtAboveAverage.png' | relative_url }})
 ![histogram_human_lengths.png]({{ '/assets/images/histogram_human_lengths.png' | relative_url }})

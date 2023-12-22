@@ -105,6 +105,31 @@ The second approach tries to find a balance between the information we obtained 
 
 The third approach works in a similar fashion as the second one. However, to compare what is a good trade-off between semantic similarity and PageRank, this third approach starts looking at semantic similarity earlier, while the second approach focuses on PageRank until the topic articles are more similar. We will call this method the PreSemanticRank approach.
 
+## Limitations of exploration
+
+For the exploration, we focused on the paths that have been finished by humans. Additionally, we restricted it to paths that have been completed at least 3 times. This ends up giving us 3860 different source target pairs to compare.
+
+# Study of Man vs Machine 
+
+The following plot shows the results for all the different categories. It shows the average path length per category:
+
+-------------- LEYENDA CARLOS -------------
+{% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
+
+
+Based on this initial result, it’s clear that the landmark solution provides the best improvement overall, being consistently the lowest ranked. By comparison, while the semantic rank method was competitive with the average human, it never seemed to outperform.
+
+This is actually interesting, as it hints at the idea that the underlying structure is the most relevant feature when exploring Wikispeedia, not the semantic analysis. We can make some intuitive argument for this, as the links that a page carries are not always relevant to the topic at its core. For example, United States might have a link to Copper, which is a link that is able to be exploited by one of the methods and not the other.
+
+Also, the SemanticRank approach performs better than the PreSemanticRank approach in all categories, signifying the higher importance of navigating the important/hub nodes rather than trying to achieve before nodes with higher similarity. For this reason, we will not continue analyzing the PreSemanticRank approach in the subsequent analyses.
+
+
+We will plot the histogram of the frequencies. We will plot the one for the human players as well, just to make it easier to read.
+
+{% include hist_landmark.html %}
+{% include hist_semrank.html %}
+{% include hist_human.html %}
+
 # Graph storm
 
 {% include Plotly_man_len_avgs.html %}
@@ -150,25 +175,6 @@ The third approach works in a similar fashion as the second one. However, to com
 ![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
 ![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
 
-
-## Limitations of exploration
-
-For the exploration, we focused on the paths that have been finished by humans. Additionally, we restricted it to paths that have been completed at least 3 times. This ends up giving us 3860 different source target pairs to compare.
-
-
-
-# Study of Man vs Machine 
-
-The following plot shows the results for all the different categories. It shows the average path length per category:
-
-Based on this initial result, it’s clear that the landmark solution provides the best improvement overall, being consistently the lowest ranked. By comparison, while the semantic rank method was competitive with the average human, it never seemed to outperform.
-
-This is actually interesting, as it hints at the idea that the underlying structure is the most relevant feature when exploring Wikispeedia, not the semantic analysis. We can make some intuitive argument for this, as the links that a page carries are not always relevant to the topic at its core. For example, United States might have a link to Copper, which is a link that is able to be exploited by one of the methods and not the other.
-
-Also, the SemanticRank approach performs better than the PreSemanticRank approach in all categories, signifying the higher importance of navigating the important/hub nodes rather than trying to achieve before nodes with higher similarity. For this reason, we will not continue analyzing the PreSemanticRank approach in the subsequent analyses.
-
-
-We will plot the histogram of the frequencies. We will plot the one for the human players as well, just to make it easier to read.
 
 
 

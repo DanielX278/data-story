@@ -28,7 +28,7 @@ To start our analysis, we investigate the information contained in the graph its
 
 The first part of the game we analyze is the degree of the nodes. The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with close to 900  connections). At the same time, we identify 13 nodes with just one connection, and 1581 nodes with a degree lower than 20.
 
-FALTA INCLUIR AQUÍ EL CCDF---------------------------------------
+{% include ccdf_plot.html %}
 
 Let’s visualize what the nodes with the highest degree look like.
 

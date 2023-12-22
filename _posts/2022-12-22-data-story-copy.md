@@ -6,43 +6,7 @@ author: "AMonAVIS"
 # Graph storm
 
 prova 
-{% include Plotly_man_len_avgs.html %}
-{% include Plotly_finished_paths_categories.html %}
-<img src="../_includes_/histogram_pagerank.png" alt="Descriptive text for the image">
 
-{% include tsne_landmark.png %}
-{% include Plotly_appearances_in_paths_versus_degree.html %}
-{% include PageRankTop80.png %}
-{% include count_vs_degree.png %}
-{% include Plotly_network_higher_degree.html %}
-{% include Plotly_avg_lengths.html %}
-{% include Plotly_distr_finished_path_length_25_humans.html %}
-{% include PageRankAboveMedian.png %}
-{% include Plotly_normalized_category_counts_unfinished.html %}
-{% include perfect_count_vs_degree.png %}
-{% include histogram_shortest_optimal.png %}
-{% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
-{% include histogram_landmark.png %}
-{% include Plotly_distr_finished_path_length_humans.html %}
-{% include Plotly_category_counts_unfinished.html %}
-{% include tsne_semantic_rank.png %}
-{% include Plotly_category_counts_finished.html %}
-{% include DegreeTop.png %}
-{% include Plotlu_distr_cat.html %}
-{% include HigherDegree60.png %}
-{% include perfect_count_vs_pagerank.png %}
-{% include Plotly_unfinished_paths_categories.html %}
-{% include Plotly_counts_graph.html %}
-{% include PageRankClassificationAll.png %}
-{% include Plotly_normalized_category_counts_finished.html %}
-{% include Plotly_man_v_mac.html %}
-{% include human_count_vs_degree.png %}
-{% include AveragePageRank60.png %}
-{% include Plotly_distr_cat.html %}
-{% include PageRankArtAboveAverage.png %}
-{% include histogram_human_lengths.png %}
-{% include tsne_optimal.png %}
-{% include human_pagerank_vs_count.png %}
 
 The Man and the Machine focuses on this competition, comparing humans to an AI constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the dataset, find all shortest paths, and store them.
 
@@ -98,13 +62,12 @@ First, we want to get an idea of what are the most common finished, and unfinish
 Between these two graphs, we can see that there are some differences in distribution. The actual frequency value should be ignored, as there are more finished than unfinished paths. It is interesting to note that it seems that geography is much more common in finished paths, this might be because geography nodes tend to be very common.
 
 
+This graph seems wrong, as the X axis is incredibly skewed. We checked in detail why this was happening, and found that there are people that are really stubborn while playing the game. In particular, one poor fellow visited 435 different pages trying to find a link between “United States” and “English Language”. Which is slightly unrelated, but is rather hilarious as a find. At the very least, the guy is stubborn and manages to find a link eventually.
+
+We redid the plot only taking in the players that took less than 25. This arbitrary value was chosen just for visualization purposes.
 
 
 
-% More graph properties here, tbd
-
-
-- frequency of categories
 
 ## Good predictors of importance
 In the original paper <sup>4</sup>, the authors outline that humans give a priority to hubs when exploring which might not always be optimal. While this can be shown to be trivially true, it’s interesting to ask the following: Are hubs actually helpful for finding the shortest paths? Do humans use hubs?
@@ -112,6 +75,8 @@ In the original paper <sup>4</sup>, the authors outline that humans give a prior
 We note that the original authors only describe hubs as those articles with a high degree. Is this the only definition of hub, or is there an alternative definition that is valid as well? We will investigate these elements.
 
 First off, do humans actually use hubs? We will plot the appearance count, versus the degree of the nodes. For the count, we ignore a node if it is a source or a target node. Additionally, we only use finished paths.
+
+
 
 
 You can see there is some relation, and the fitted line gives high values. Does this hold up statistically? We will do a regression analysis, finding the relation between count and degree. These are the results we obtain:

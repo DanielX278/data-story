@@ -1,30 +1,15 @@
 ---
 layout: post
 title: "NEWWWW Data story"
-author: "Arthur Conan Doyle"
+author: "AMonAVIS"
 ---
-
-The Human and the Machine focuses on this, comparing an AI that has similar constraints to humans, and trying to find out how they compare. These constraints are created to force the AI to have similar limitations as us, as without them it could just explore the dataset, find all shortest paths, and just reuse them.
-
-The project starts from human navigation paths, defined by the users playing the Wikispeedia game, to then dwell into the navigation ability of the machine, through different heuristics that are hand designed: how differently will these entities approach this same problem? Can machines get insights that we humans are not easily able to find? Will these machines be better than humans at playing the game?
-
-We additionally have the advantage that this is a solved game. The shortest path between two nodes can be found exactly through methods like Dijkstra’s algorithm. This allows us to not only compare our solutions to human play, but also to the best possible answer.
-
-## Research questions
-* Which heuristics are better at predicting the shortest path in the Wikispeedia graph?
-* Do any of these heuristics come on top?
-* Can we identify any patterns or recurring structures in the human paths (ie. going for a central hub)?
-* What insights can we draw from the cases where human paths outperform the machine ones? And vice versa?
-* Is there any way to characterize these differences in performance? Categories, semantic distance, path length, or something else?
-* How do these compare to the optimal path?
-
 # Graph storm
 
 prova 
-{% include Plotly_network_pagerank.html %}
 {% include Plotly_man_len_avgs.html %}
 {% include Plotly_finished_paths_categories.html %}
-{% include histogram_pagerank.png %}
+<img src="../_includes_/histogram_pagerank.png" alt="Descriptive text for the image">
+
 {% include tsne_landmark.png %}
 {% include Plotly_appearances_in_paths_versus_degree.html %}
 {% include PageRankTop80.png %}
@@ -51,7 +36,6 @@ prova
 {% include PageRankClassificationAll.png %}
 {% include Plotly_normalized_category_counts_finished.html %}
 {% include Plotly_man_v_mac.html %}
-{% include Plotly_PageRank40.html %}
 {% include human_count_vs_degree.png %}
 {% include AveragePageRank60.png %}
 {% include Plotly_distr_cat.html %}
@@ -60,23 +44,44 @@ prova
 {% include tsne_optimal.png %}
 {% include human_pagerank_vs_count.png %}
 
+The Man and the Machine focuses on this competition, comparing humans to an AI constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the dataset, find all shortest paths, and store them.
+
+Our project starts from human navigation paths, defined by the users playing the Wikispeedia game. We then create a machine and analyze its navigation ability. We use several hand designed heuristics, and ask– how differently will these entities approach this same Wikispeedia game? Can machines get insights that we humans are not easily able to find? Will these machines be better than humans at playing the game?
+
+Additionally, we have the advantage that this is a solved game. The shortest path between two nodes can be found exactly through methods like Dijkstra’s algorithm. This allows us to not only compare our solutions to human play, but also to the best possible answer.
+
+
+## Research questions
+* Which heuristics are best at predicting the shortest path in the Wikispeedia graph?
+* Do any of these heuristics outperform humans?
+* Can we identify any patterns or recurring structures in the human paths (ie. going for a central hub)?
+* What insights can we draw from the cases where human paths outperform the machine ones? And vice versa?
+* Is there any way to characterize these differences in performance? Categories, semantic distance, path length, or something else?
+* How do these compare to the optimal path?
+
+
+
 
 # Study of the game 
 
 ## Wikispeedia Graph
 
-For this comparison, we are starting with the version of Wikispeedia that was created by <sup>4</sup>. There, the goal is to reach a target Wikipedia page from a starting one, only using the hyperlinks in the articles. This meant we worked with a subset of Wikipedia: there were 4592 articles (the nodes with at least a connection in the graph) and 119882 hyperlinks (the edges).
+For this comparison, we are starting with the version of Wikispeedia that was created by <sup>4</sup>. Given a starting Wikipedia page, the goal is to reach a certain target Wikipedia page, only using the hyperlinks in the articles. Since the actual Wikipedia structure is huge, we worked with a subset of Wikipedia by using the provided Wikispeeda dataset. There are 4592 articles (the nodes with at least a connection in the graph) and 119882 hyperlinks (the edges).
 
-For starters, we will work on analyzing the information contained in the graph, to come up with ideas on how we can try and exploit some of its properties to create more competitive machines. 
+To start our analysis, we investigate the information contained in the graph itself. This is also useful to exploit some of its properties to create more competitive machines. 
 
-The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with more than 500 and less than 1000 connections). At the same time, we identify 13 nodes with just one connection, and 1581 nodes with a degree lower than 20.
+The first part of the game we analyze is the degree of the nodes. The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with close to 900  connections). At the same time, we identify 13 nodes with just one connection, and 1581 nodes with a degree lower than 20.
 
 
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 
+PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages.
 
-Figures/Plotly_PageRank40.html
+{% include Plotly_PageRank40.html %}
+{% include Plotly_network_pagerank.html %}
+
+
 
 
 
@@ -87,7 +92,6 @@ Figures/Plotly_PageRank40.html
 Out of 76193 games, we have 51318 finished games and 24875 unfinished ones. Of those, 47856 paths are unique. Data is collected until 2014, and the majority of games has been played in Q3 2009, with just 24% of them being completed sessions. With some further analysis, we looked for the categories of target articles with the highest counts of unfinished paths, and found that "Science", "Everyday life" and "Geography" are the three that most of the players seem to give up on. However, we must take into account that "Science" is the category with the highest number of articles, which means that we cannot conclude that the "Science" articles are the hardest to find in the game.
 
 First, we want to get an idea of what are the most common finished, and unfinished paths. For starters, we’ll plot the target location only.
-
 
 
 

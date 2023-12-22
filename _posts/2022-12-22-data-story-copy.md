@@ -113,8 +113,7 @@ For the exploration, we focused on the paths that have been finished by humans. 
 
 The following plot shows the results for all the different categories. It shows the average path length per category:
 
--------------- LEYENDA CARLOS -------------
-{% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
+{% include Plotly_avg_lengths_carlos.html %}
 
 
 Based on this initial result, it’s clear that the landmark solution provides the best improvement overall, being consistently the lowest ranked. By comparison, while the semantic rank method was competitive with the average human, it never seemed to outperform.
@@ -137,6 +136,16 @@ The second thing to note is that, if you ignore this peak, the plots for the Sem
 By comparison, the landmark approach is much more consistent, and has a more uniform distribution. It also has a higher amount of values around 4, not around 5. The reason behind this isn’t very clear, but it is interesting to note.
 
 Now, how does this compare with the actual shortest path?
+
+{% include hist_shortest.html %}
+This graph is rather similar to the landmark approach shortest path, but with there being more elements in 5 than in 3.
+
+## Characterizing paths
+Characterizing the paths taken by the methods could also lead to interesting results. Of course, this leads to the question, how do you characterize so many paths? Is there really any way of summarizing them?
+
+Based on some research… no. At least, no easy way was found.
+
+We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the Landmark, PageRank, and the optimal values. These are the plots that we obtained:
 
 # Graph storm
 
@@ -182,16 +191,6 @@ Now, how does this compare with the actual shortest path?
 ![ols2_degree_value.png]({{ '/assets/images/ols2_degree_value.png' | relative_url }})
 ![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
 ![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
-
-
-This graph is rather similar to the landmark approach shortest path, but with there being more elements in 5 than in 3.
-
-## Characterizing paths
-Characterizing the paths taken by the methods could also lead to interesting results. Of course, this leads to the question, how do you characterize so many paths? Is there really any way of summarizing them?
-
-Based on some research… no. At least, no easy way was found.
-
-We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the Landmark, PageRank, and the optimal values. These are the plots that we obtained:
 
 This analysis is not particularly interesting for neither landmark, nor for the optimal value. It just resembles a blob of colors, nothing of note. This is interesting, as it means that the shortest path has almost nothing to do with semantic information. We have no way of characterizing path data from these methods, at least meaning wise.
 

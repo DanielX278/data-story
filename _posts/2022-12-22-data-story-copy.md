@@ -32,7 +32,7 @@ The first part of the game we analyze is the degree of the nodes. The degree of 
 
 Let’s visualize what the nodes with the highest degree look like.
 
-![HigherDegree60](HigherDegree60.png)
+![HigherDegree60]({{ '/assets/images/HigherDegree60.png' | relative_url }})
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 
@@ -130,6 +130,14 @@ We will plot the histogram of the frequencies. We will plot the one for the huma
 {% include hist_semrank.html %}
 {% include hist_human.html %}
 
+The first thing to note is that for the SemanticRank approach there is a peak at 25. This is because the method had a built-in system to force it to stop searching after that value. This was to make the method manageable to run.
+
+The second thing to note is that, if you ignore this peak, the plots for the SemanticRank and the human data are actually relatively similar. You can notice a peak of around 5, and the fact that it’s a tailed distribution. The SemanticRank approach does have some holes around certain values, which is something we need to analyze a bit further. Nevertheless, this is interesting as it seems that the SemanticRank approach does seem to represent human thought, at least somewhat.
+
+By comparison, the landmark approach is much more consistent, and has a more uniform distribution. It also has a higher amount of values around 4, not around 5. The reason behind this isn’t very clear, but it is interesting to note.
+
+Now, how does this compare with the actual shortest path?
+
 # Graph storm
 
 {% include Plotly_man_len_avgs.html %}
@@ -174,17 +182,6 @@ We will plot the histogram of the frequencies. We will plot the one for the huma
 ![ols2_degree_value.png]({{ '/assets/images/ols2_degree_value.png' | relative_url }})
 ![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
 ![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
-
-
-
-
-The first thing to note is that for the SemanticRank approach there is a peak at 25. This is because the method had a built-in system to force it to stop searching after that value. This was to make the method manageable to run.
-
-The second thing to note is that, if you ignore this peak, the plots for the SemanticRank and the human data are actually relatively similar. You can notice a peak of around 5, and the fact that it’s a tailed distribution. The SemanticRank approach does have some holes around certain values, which is something we need to analyze a bit further. Nevertheless, this is interesting as it seems that the SemanticRank approach does seem to represent human thought, at least somewhat.
-
-By comparison, the landmark approach is much more consistent, and has a more uniform distribution. It also has a higher amount of values around 4, not around 5. The reason behind this isn’t very clear, but it is interesting to note.
-
-Now, how does this compare with the actual shortest path?
 
 
 This graph is rather similar to the landmark approach shortest path, but with there being more elements in 5 than in 3.

@@ -10,7 +10,6 @@ Undoubtably one of the most intriguing Ada project of the Fall '23 season, "The 
 - Nicolas Perez, Exchange student from TU Delft
 - Carolina Marugan Rubio, Exchange student from UPV
 
---IF TIME ADD AI GEN PICS OF US--
 
 <!-- 
 <figure>

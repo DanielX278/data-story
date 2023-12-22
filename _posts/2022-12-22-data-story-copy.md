@@ -26,19 +26,19 @@ For this comparison, we are starting with the version of Wikispeedia that was cr
 
 To start our analysis, we investigate the information contained in the graph itself. This is also useful to exploit some of its properties to create more competitive machines. 
 
-The first part of the game we analyze is the degree of the nodes. The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with close to 900  connections). At the same time, we identify 13 nodes with just one connection, and 1581 nodes with a degree lower than 20.
+The first part of the game we analyze is the degree of the nodes. The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with close to 900  connections). At the same time, we identify in an interactive graph 13 nodes with just one connection, and 1581 nodes with a degree lower than 20. 
 
 {% include ccdf_plot.html %}
 
 Let’s visualize what the nodes with the highest degree look like.
 
-{% include hist_degree.html %}
+![HigherDegree60](HigherDegree60.png)
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 
 PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages.
 
-{% include hist_pagerank.html %}
+{% include Plotly_pageRank40_ordered.html %}
 {% include Plotly_network_pagerank.html %}
 
 # Study of Man 
@@ -66,6 +66,7 @@ We redid the plot only taking in the players that took less than 25. This arbitr
 {% include hist_human.html %}
 
 ## Good predictors of importance
+
 In the original paper \[4\], the authors outline that humans give a priority to hubs when exploring which might not always be optimal. While this can be shown to be trivially true, it’s interesting to ask the following: Are hubs actually helpful for finding the shortest paths? Do humans use hubs?
 
 We note that the original authors only describe hubs as those articles with a high degree. Is this the only definition of hub, or is there an alternative definition that is valid as well? We will investigate these elements.
@@ -74,19 +75,17 @@ First off, do humans actually use hubs? We will plot the appearance count, versu
 
 {% include Plotly_appearances_in_paths_versus_degree.html %}
 
-You can see there is some relation, and the fitted line gives high values. Does this hold up statistically? We will do a regression analysis, finding the relation between count and degree. These are the results we obtain:
+You can see there is some relation, and the fitted line gives high values. Does this hold up statistically? We did a regression analysis, finding the relation between count and degree. 
 
-Based on the regression analysis, there is a correlation between how often a node is used in the paths and the degree. So this idea of players using a hub is definitely common for the human dataset.
-
-We can also see that there is a high R squared, considering there is only one variable. So the degree does help explain how often it will appear in the paths.
+Based on the regression analysis, there is a correlation between how often a node is used in the paths and the degree. So this idea of players using a hub is definitely common for the human dataset. We obtained an adjusted R squared of 0.599, considering there is only one variable. So the degree does help explain how often it will appear in the paths.
 
 Now, does this actually hold for the shortest paths?
 
-While the R squared is lower, it is still quite high in this case. Most importantly, it also shows that there is a correlation between the degree and the number of times it appears in a shortest path! This implies that hubs are actually very helpful for finding out the path between two nodes, and are commonly used.
+Performing again a regression analysis and obtaining an adjusted R squared of 0.546, lower than before, we conclude that it is still quite high in this case. Most importantly, it also shows that there is a correlation between the degree and the number of times it appears in a shortest path! This implies that hubs are actually very helpful for finding out the path between two nodes, and are commonly used.
 
 This is something that can be used in our AI, and will be taken into account.
 
-Although we have already found that these hubs are actually very relevant, we want to explore if any other definitions are also valid. Namely, we want to see if the pagerank has an important correlation between the two values.
+Although we have already found that these hubs are actually very relevant, we want to explore if any other definitions are also valid. Namely, we want to see if the pagerank has an important correlation between the two values. After the regression analysis (Adj. R-squared: 0.616), we obtain that values are slightly higher between humans and PageRank, which is interesting.
 
 By comparison, PageRank has a slightly lower r squared score when it comes to the actual shortest path. This is a bit bizarre as PageRank has more info and is a more robust metric. It is still valid, it still has a high correlation and is still a decent explanation. But it is worse than just using the default degree. A possible explanation for this behavior is that Wikipedia articles (nodes) with a high PageRank are general topics, so it can be more challenging to find links to more specific topics, which are likely to be the target articles.
 

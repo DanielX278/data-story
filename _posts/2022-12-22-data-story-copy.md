@@ -87,9 +87,23 @@ This is something that can be used in our AI, and will be taken into account.
 
 Although we have already found that these hubs are actually very relevant, we want to explore if any other definitions are also valid. Namely, we want to see if the pagerank has an important correlation between the two values. After the regression analysis (Adj. R-squared: 0.616), we obtain that values are slightly higher between humans and PageRank, which is interesting.
 
-By comparison, PageRank has a slightly lower r squared score when it comes to the actual shortest path. This is a bit bizarre as PageRank has more info and is a more robust metric. It is still valid, it still has a high correlation and is still a decent explanation. But it is worse than just using the default degree. A possible explanation for this behavior is that Wikipedia articles (nodes) with a high PageRank are general topics, so it can be more challenging to find links to more specific topics, which are likely to be the target articles.
+By comparison, PageRank has a slightly lower r squared score when it comes to the actual shortest path (0.507). This is a bit bizarre as PageRank has more info and is a more robust metric. It is still valid, it still has a high correlation and is still a decent explanation. But it is worse than just using the default degree. A possible explanation for this behavior is that Wikipedia articles (nodes) with a high PageRank are general topics, so it can be more challenging to find links to more specific topics, which are likely to be the target articles.
 
 Another interesting point to consider is how important it is to approach similar topics to reach the target. To investigate this, we explore the semantic similarity between the target and the neighboring nodes (i.e. articles which have a connection to the target). This can give us insights on whether humans try to reach neighboring nodes with higher semantic similarity to approach the target, or if by the contrary, it they stick with topics with a high PageRank or node degree, and the cost of lower semantic similarity. We can then compare it to the shortest paths.
+
+# Study of the Machine 
+
+In this section, we will briefly go over the machines we implemented, and the logic behind them.
+
+## Building machines
+
+Based on the preliminary analysis and the research done by \[4\], the team decided to focus on using two things: exploiting semantic similarity between words, and exploiting graph properties. Based on these two ideas, we will be building our machines to compare with humans.
+
+The first machine was inspired by the work done by \[5\], where they select some “landmark” nodes, and calculate the shortest path by estimating what the shortest path is using them. We use a simplification of it, picking landmark nodes as those with the highest number of edges, and directly assuming that all paths must go through the landmark nodes. We call this the Landmark approach.
+
+The second approach tries to find a balance between the information we obtained from the PageRank and the semantic distance. For the semantic distance, we use this \[6\] sentence transformers model from hugging face, and for pagerank we use the built in networkX library. We call this method the SemanticRank approach.
+
+The third approach works in a similar fashion as the second one. However, to compare what is a good trade-off between semantic similarity and PageRank, this third approach starts looking at semantic similarity earlier, while the second approach focuses on PageRank until the topic articles are more similar. We will call this method the PreSemanticRank approach.
 
 # Graph storm
 
@@ -135,22 +149,6 @@ Another interesting point to consider is how important it is to approach similar
 ![ols2_degree_value.png]({{ '/assets/images/ols2_degree_value.png' | relative_url }})
 ![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
 ![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
-
-
-
-# Study of the Machine 
-
-In this section, we will briefly go over the machines we implemented, and the logic behind them.
-
-## Building machines
-
-Based on the preliminary analysis and the research done by \[4\], the team decided to focus on using two things: exploiting semantic similarity between words, and exploiting graph properties. Based on these two ideas, we will be building our machines to compare with humans.
-
-The first machine was inspired by the work done by \[5\], where they select some “landmark” nodes, and calculate the shortest path by estimating what the shortest path is using them. We use a simplification of it, picking landmark nodes as those with the highest number of edges, and directly assuming that all paths must go through the landmark nodes. We call this the Landmark approach.
-
-The second approach tries to find a balance between the information we obtained from the PageRank and the semantic distance. For the semantic distance, we use this \[6\] sentence transformers model from hugging face, and for pagerank we use the built in networkX library. We call this method the SemanticRank approach.
-
-The third approach works in a similar fashion as the second one. However, to compare what is a good trade-off between semantic similarity and PageRank, this third approach starts looking at semantic similarity earlier, while the second approach focuses on PageRank until the topic articles are more similar. We will call this method the PreSemanticRank approach.
 
 
 ## Limitations of exploration

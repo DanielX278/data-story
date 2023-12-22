@@ -5,9 +5,44 @@ author: "AMonAVIS"
 ---
 # Graph storm
 
-prova 
+{% include Plotly_network_pagerank.html %}
 {% include Plotly_man_len_avgs.html %}
 {% include Plotly_finished_paths_categories.html %}
+![histogram_pagerank.png]({ '/assets/images/histogram_pagerank.png' | relative_url })
+![tsne_landmark.png]({ '/assets/images/tsne_landmark.png' | relative_url })
+{% include Plotly_appearances_in_paths_versus_degree.html %}
+![PageRankTop80.png]({ '/assets/images/PageRankTop80.png' | relative_url })
+![count_vs_degree.png]({ '/assets/images/count_vs_degree.png' | relative_url })
+{% include Plotly_network_higher_degree.html %}
+{% include Plotly_avg_lengths.html %}
+{% include Plotly_distr_finished_path_length_25_humans.html %}
+![PageRankAboveMedian.png]({ '/assets/images/PageRankAboveMedian.png' | relative_url })
+{% include Plotly_normalized_category_counts_unfinished.html %}
+![perfect_count_vs_degree.png]({ '/assets/images/perfect_count_vs_degree.png' | relative_url })
+![histogram_shortest_optimal.png]({ '/assets/images/histogram_shortest_optimal.png' | relative_url })
+{% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
+![histogram_landmark.png]({ '/assets/images/histogram_landmark.png' | relative_url })
+{% include Plotly_distr_finished_path_length_humans.html %}
+{% include Plotly_category_counts_unfinished.html %}
+![tsne_semantic_rank.png]({ '/assets/images/tsne_semantic_rank.png' | relative_url })
+{% include Plotly_category_counts_finished.html %}
+![DegreeTop.png]({ '/assets/images/DegreeTop.png' | relative_url })
+{% include Plotlu_distr_cat.html %}
+![HigherDegree60.png]({ '/assets/images/HigherDegree60.png' | relative_url })
+![perfect_count_vs_pagerank.png]({ '/assets/images/perfect_count_vs_pagerank.png' | relative_url })
+{% include Plotly_unfinished_paths_categories.html %}
+{% include Plotly_counts_graph.html %}
+![PageRankClassificationAll.png]({ '/assets/images/PageRankClassificationAll.png' | relative_url })
+{% include Plotly_normalized_category_counts_finished.html %}
+{% include Plotly_man_v_mac.html %}
+{% include Plotly_PageRank40.html %}
+![human_count_vs_degree.png]({ '/assets/images/human_count_vs_degree.png' | relative_url })
+![AveragePageRank60.png]({ '/assets/images/AveragePageRank60.png' | relative_url })
+{% include Plotly_distr_cat.html %}
+![PageRankArtAboveAverage.png]({ '/assets/images/PageRankArtAboveAverage.png' | relative_url })
+![histogram_human_lengths.png]({ '/assets/images/histogram_human_lengths.png' | relative_url })
+![tsne_optimal.png]({ '/assets/images/tsne_optimal.png' | relative_url })
+![human_pagerank_vs_count.png]({ '/assets/images/human_pagerank_vs_count.png' | relative_url })
 
 
 The Man and the Machine focuses on this competition, comparing humans to an AI constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the dataset, find all shortest paths, and store them.

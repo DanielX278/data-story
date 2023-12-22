@@ -6,7 +6,7 @@ author: "AMonAVIS"
 # Graph storm
 
 
-![histogram_pagerank.png]({ '/assets/images/histogram_pagerank.png' | relative_url })
+![histogram_pagerank.png]({ '../assets/images/histogram_pagerank.png' | relative_url })
 
 
 The Man and the Machine focuses on this competition, comparing humans to an AI constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the dataset, find all shortest paths, and store them.

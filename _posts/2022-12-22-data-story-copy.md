@@ -71,7 +71,7 @@ Additionally, we have the advantage that this is a solved game. The shortest pat
 
 ## Wikispeedia Graph
 
-For this comparison, we are starting with the version of Wikispeedia that was created by <sup>4</sup>. Given a starting Wikipedia page, the goal is to reach a certain target Wikipedia page, only using the hyperlinks in the articles. Since the actual Wikipedia structure is huge, we worked with a subset of Wikipedia by using the provided Wikispeeda dataset. There are 4592 articles (the nodes with at least a connection in the graph) and 119882 hyperlinks (the edges).
+For this comparison, we are starting with the version of Wikispeedia that was created by \[4\]. Given a starting Wikipedia page, the goal is to reach a certain target Wikipedia page, only using the hyperlinks in the articles. Since the actual Wikipedia structure is huge, we worked with a subset of Wikipedia by using the provided Wikispeeda dataset. There are 4592 articles (the nodes with at least a connection in the graph) and 119882 hyperlinks (the edges).
 
 To start our analysis, we investigate the information contained in the graph itself. This is also useful to exploit some of its properties to create more competitive machines. 
 
@@ -111,7 +111,7 @@ We redid the plot only taking in the players that took less than 25. This arbitr
 
 
 ## Good predictors of importance
-In the original paper <sup>4</sup>, the authors outline that humans give a priority to hubs when exploring which might not always be optimal. While this can be shown to be trivially true, it’s interesting to ask the following: Are hubs actually helpful for finding the shortest paths? Do humans use hubs?
+In the original paper \[4\], the authors outline that humans give a priority to hubs when exploring which might not always be optimal. While this can be shown to be trivially true, it’s interesting to ask the following: Are hubs actually helpful for finding the shortest paths? Do humans use hubs?
 
 We note that the original authors only describe hubs as those articles with a high degree. Is this the only definition of hub, or is there an alternative definition that is valid as well? We will investigate these elements.
 
@@ -149,11 +149,11 @@ In this section, we will briefly go over the machines we implemented, and the lo
 
 ## Building machines
 
-Based on the preliminary analysis and the research done by <sup>4</sup>, the team decided to focus on using two things: exploiting semantic similarity between words, and exploiting graph properties. Based on these two ideas, we will be building our machines to compare with humans.
+Based on the preliminary analysis and the research done by \[4\], the team decided to focus on using two things: exploiting semantic similarity between words, and exploiting graph properties. Based on these two ideas, we will be building our machines to compare with humans.
 
-The first machine was inspired by the work done by <sup>5</sup>, where they select some “landmark” nodes, and calculate the shortest path by estimating what the shortest path is using them. We use a simplification of it, picking landmark nodes as those with the highest number of edges, and directly assuming that all paths must go through the landmark nodes. We call this the Landmark approach.
+The first machine was inspired by the work done by \[5\], where they select some “landmark” nodes, and calculate the shortest path by estimating what the shortest path is using them. We use a simplification of it, picking landmark nodes as those with the highest number of edges, and directly assuming that all paths must go through the landmark nodes. We call this the Landmark approach.
 
-The second approach tries to find a balance between the information we obtained from the PageRank and the semantic distance. For the semantic distance, we use this <sup>6</sup> sentence transformers model from hugging face, and for pagerank we use the built in networkX library. We call this method the SemanticRank approach.
+The second approach tries to find a balance between the information we obtained from the PageRank and the semantic distance. For the semantic distance, we use this \[6\] sentence transformers model from hugging face, and for pagerank we use the built in networkX library. We call this method the SemanticRank approach.
 
 The third approach works in a similar fashion as the second one. However, to compare what is a good trade-off between semantic similarity and PageRank, this third approach starts looking at semantic similarity earlier, while the second approach focuses on PageRank until the topic articles are more similar. We will call this method the PreSemanticRank approach.
 

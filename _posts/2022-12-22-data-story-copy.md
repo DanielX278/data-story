@@ -18,6 +18,32 @@ Additionally, we have the advantage that this is a solved game. The shortest pat
 * Is there any way to characterize these differences in performance? Categories, semantic distance, path length, or something else?
 * How do these compare to the optimal path?
 
+## Wikispeedia Graph
+
+For this comparison, we are starting with the version of Wikispeedia that was created by \[4\]. Given a starting Wikipedia page, the goal is to reach a certain target Wikipedia page, only using the hyperlinks in the articles. Since the actual Wikipedia structure is huge, we worked with a subset of Wikipedia by using the provided Wikispeeda dataset. There are 4592 articles (the nodes with at least a connection in the graph) and 119882 hyperlinks (the edges).
+
+# Study of the game 
+
+To start our analysis, we investigate the information contained in the graph itself. This is also useful to exploit some of its properties to create more competitive machines. 
+
+The first part of the game we analyze is the degree of the nodes. The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with close to 900  connections). At the same time, we identify 13 nodes with just one connection, and 1581 nodes with a degree lower than 20.
+
+FALTA INCLUIR AQUÍ EL CCDF
+
+Let’s visualize what the nodes with the highest degree look like.
+
+{% include HigherDegree60.html %}
+
+
+{% include Plotly_network_pagerank.html %}
+
+We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
+
+PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages.
+
+{% include Plotly_PageRank40.html %}
+{% include Plotly_network_pagerank.html %}
+
 # Graph storm
 
 {% include Plotly_network_pagerank.html %}
@@ -63,30 +89,6 @@ Additionally, we have the advantage that this is a solved game. The shortest pat
 ![ols2_degree_value.png]({{ '/assets/images/ols2_degree_value.png' | relative_url }})
 ![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
 ![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
-
-
-
-
-
-# Study of the game 
-
-## Wikispeedia Graph
-
-For this comparison, we are starting with the version of Wikispeedia that was created by \[4\]. Given a starting Wikipedia page, the goal is to reach a certain target Wikipedia page, only using the hyperlinks in the articles. Since the actual Wikipedia structure is huge, we worked with a subset of Wikipedia by using the provided Wikispeeda dataset. There are 4592 articles (the nodes with at least a connection in the graph) and 119882 hyperlinks (the edges).
-
-To start our analysis, we investigate the information contained in the graph itself. This is also useful to exploit some of its properties to create more competitive machines. 
-
-The first part of the game we analyze is the degree of the nodes. The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with close to 900  connections). At the same time, we identify 13 nodes with just one connection, and 1581 nodes with a degree lower than 20.
-
-
-{% include Plotly_network_pagerank.html %}
-
-We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
-
-PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages.
-
-{% include Plotly_PageRank40.html %}
-{% include Plotly_network_pagerank.html %}
 
 
 

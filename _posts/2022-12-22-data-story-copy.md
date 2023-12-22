@@ -28,7 +28,7 @@ To start our analysis, we investigate the information contained in the graph its
 
 The first part of the game we analyze is the degree of the nodes. The degree of a node is equal to the number of edges going in or out of it. Plotting the Complementary Cumulative Distribution Function (CCDF) of the nodes' degrees, we can identify a Power Law and recognize how a small portion of nodes has an extremely high number of connections. In particular, we immediately detect how this phenomenon mostly concerns geopolitical or historical entities, like “Europe” and “France“ (with more than 1000 connections) or "World War II" (with close to 900  connections). At the same time, we identify in an interactive graph 13 nodes with just one connection, and 1581 nodes with a degree lower than 20. 
 
-{% include ccdf_plot.html %}
+{% include Plotly_ccdf_plot.html %}
 
 Let’s visualize what the nodes with the highest degree look like.
 
@@ -63,7 +63,7 @@ The following graph seems wrong, as the X axis is incredibly skewed. We checked 
 
 We redid the plot only taking in the players that took less than 25. This arbitrary value was chosen just for visualization purposes.
 
-{% include hist_human.html %}
+{% include Plotly_hist_human.html %}
 
 ## Good predictors of importance
 
@@ -125,9 +125,9 @@ Also, the SemanticRank approach performs better than the PreSemanticRank approac
 
 We will plot the histogram of the frequencies. We will plot the one for the human players as well, just to make it easier to read.
 
-{% include hist_landmark.html %}
-{% include hist_semrank.html %}
-{% include hist_human.html %}
+{% include Plotly_hist_landmark.html %}
+{% include Plotly_hist_semrank.html %}
+{% include Plotly_hist_human.html %}
 
 The first thing to note is that for the SemanticRank approach there is a peak at 25. This is because the method had a built-in system to force it to stop searching after that value. This was to make the method manageable to run.
 
@@ -137,7 +137,7 @@ By comparison, the landmark approach is much more consistent, and has a more uni
 
 Now, how does this compare with the actual shortest path?
 
-{% include hist_shortest.html %}
+{% include Plotly_hist_shortest.html %}
 This graph is rather similar to the landmark approach shortest path, but with there being more elements in 5 than in 3.
 
 ## Characterizing paths
@@ -145,7 +145,9 @@ Characterizing the paths taken by the methods could also lead to interesting res
 
 Based on some research… no. At least, no easy way was found.
 
-We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the Landmark, PageRank, and the optimal values. These are the plots that we obtained:
+We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the optimal values. This is the plot that we obtained:
+
+{% include Plotly_optimal_tsne_length_plot.html %}
 
 # Graph storm
 

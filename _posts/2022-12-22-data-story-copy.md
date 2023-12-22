@@ -41,9 +41,30 @@ PageRank computes a ranking of the nodes in the graph based on the structure of 
 {% include Plotly_PageRank40.html %}
 {% include Plotly_network_pagerank.html %}
 
+# Study of Man 
+
+## Path information
+
+Out of 76193 games, we have 51318 finished games and 24875 unfinished ones. Of those, 47856 paths are unique. Data is collected until 2014, and the majority of games have been played in Q3 2009, with just 24% of them being completed sessions. With some further analysis, we looked for the categories of target articles with the highest counts of unfinished paths, and found that "Science", "Everyday life" and "Geography" are the three that most of the players seem to give up on. However, we must take into account that "Science" is the category with the highest number of articles, which means that we cannot conclude that the "Science" articles are the hardest to find in the game.
+
+First, we want to get an idea of what are the most common finished, and unfinished paths. For starters, we’ll plot the target location only.
+
+{% include Plotly_category_counts_finished.html %}
+{% include Plotly_category_counts_unfinished.html %}
+
+Between these two graphs, we can see that there are some differences in distribution. The actual frequency value should be ignored, as there are more finished than unfinished paths. It is interesting to note that it seems that geography is much more common in finished paths, this might be because geography nodes tend to be very common.
+
+{% include Plotly_normalized_category_counts_finished.html %}
+{% include Plotly_normalized_category_counts_unfinished.html %}
+
+The following graph seems wrong, as the X axis is incredibly skewed. We checked in detail why this was happening, and found that there are people that are really stubborn while playing the game. In particular, one poor fellow visited 435 different pages trying to find a link between “United States” and “English Language”. Which is slightly unrelated, but is rather hilarious as a find. At the very least, the guy is stubborn and manages to find a link eventually.
+
+{% include Plotly_distr_finished_path_length_humans.html %}
+
+We redid the plot only taking in the players that took less than 25. This arbitrary value was chosen just for visualization purposes.
+
 # Graph storm
 
-{% include Plotly_network_pagerank.html %}
 {% include Plotly_man_len_avgs.html %}
 {% include Plotly_finished_paths_categories.html %}
 ![histogram_pagerank.png]({{ '/assets/images/histogram_pagerank.png' | relative_url }})

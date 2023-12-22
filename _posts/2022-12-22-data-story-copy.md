@@ -6,7 +6,43 @@ author: "AMonAVIS"
 # Graph storm
 
 prova 
+{% include Plotly_man_len_avgs.html %}
+{% include Plotly_finished_paths_categories.html %}
+<img src="../_includes_/histogram_pagerank.png" alt="Descriptive text for the image">
 
+{% include tsne_landmark.png %}
+{% include Plotly_appearances_in_paths_versus_degree.html %}
+{% include PageRankTop80.png %}
+{% include count_vs_degree.png %}
+{% include Plotly_network_higher_degree.html %}
+{% include Plotly_avg_lengths.html %}
+{% include Plotly_distr_finished_path_length_25_humans.html %}
+{% include PageRankAboveMedian.png %}
+{% include Plotly_normalized_category_counts_unfinished.html %}
+{% include perfect_count_vs_degree.png %}
+{% include histogram_shortest_optimal.png %}
+{% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
+{% include histogram_landmark.png %}
+{% include Plotly_distr_finished_path_length_humans.html %}
+{% include Plotly_category_counts_unfinished.html %}
+{% include tsne_semantic_rank.png %}
+{% include Plotly_category_counts_finished.html %}
+{% include DegreeTop.png %}
+{% include Plotlu_distr_cat.html %}
+{% include HigherDegree60.png %}
+{% include perfect_count_vs_pagerank.png %}
+{% include Plotly_unfinished_paths_categories.html %}
+{% include Plotly_counts_graph.html %}
+{% include PageRankClassificationAll.png %}
+{% include Plotly_normalized_category_counts_finished.html %}
+{% include Plotly_man_v_mac.html %}
+{% include human_count_vs_degree.png %}
+{% include AveragePageRank60.png %}
+{% include Plotly_distr_cat.html %}
+{% include PageRankArtAboveAverage.png %}
+{% include histogram_human_lengths.png %}
+{% include tsne_optimal.png %}
+{% include human_pagerank_vs_count.png %}
 
 The Man and the Machine focuses on this competition, comparing humans to an AI constrained to behave like humans. We constrain the AI to have similar limitations as humans because without them, the AI could simply explore the dataset, find all shortest paths, and store them.
 

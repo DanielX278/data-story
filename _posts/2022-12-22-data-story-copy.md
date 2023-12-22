@@ -32,13 +32,13 @@ The first part of the game we analyze is the degree of the nodes. The degree of 
 
 Let’s visualize what the nodes with the highest degree look like.
 
-{% include HigherDegree60.html %}
+{% include hist_degree.html %}
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 
 PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages.
 
-{% include Plotly_PageRank40.html %}
+{% include hist_pagerank.html %}
 {% include Plotly_network_pagerank.html %}
 
 # Study of Man 
@@ -62,6 +62,8 @@ The following graph seems wrong, as the X axis is incredibly skewed. We checked 
 {% include Plotly_distr_finished_path_length_humans.html %}
 
 We redid the plot only taking in the players that took less than 25. This arbitrary value was chosen just for visualization purposes.
+
+{% include hist_human.html %}
 
 # Graph storm
 

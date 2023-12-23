@@ -37,7 +37,6 @@ We also want to find information about the PageRank of the nodes. This is becaus
 
 PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages.
 
-{% include Plotly_pageRank40_ordered.html %}
 {% include Plotly_network_pagerank.html %}
 
 # Study of Man 

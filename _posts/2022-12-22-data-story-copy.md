@@ -87,6 +87,8 @@ This is something that can be used in our AI, and will be taken into account.
 
 Although we have already found that these hubs are actually very relevant, we want to explore if any other definitions are also valid. Namely, we want to see if the pagerank has an important correlation between the two values. After the regression analysis (Adj. R-squared: 0.616), we obtain that values are slightly higher between humans and PageRank, which is interesting.
 
+![count_vs_degree.png]({{ '/assets/images/count_vs_degree.png' | relative_url }})
+
 By comparison, PageRank has a slightly lower r squared score when it comes to the actual shortest path (0.507). This is a bit bizarre as PageRank has more info and is a more robust metric. It is still valid, it still has a high correlation and is still a decent explanation. But it is worse than just using the default degree. A possible explanation for this behavior is that Wikipedia articles (nodes) with a high PageRank are general topics, so it can be more challenging to find links to more specific topics, which are likely to be the target articles.
 
 Another interesting point to consider is how important it is to approach similar topics to reach the target. To investigate this, we explore the semantic similarity between the target and the neighboring nodes (i.e. articles which have a connection to the target). This can give us insights on whether humans try to reach neighboring nodes with higher semantic similarity to approach the target, or if by the contrary, it they stick with topics with a high PageRank or node degree, and the cost of lower semantic similarity. We can then compare it to the shortest paths.
@@ -149,52 +151,13 @@ We did come up with an idea which is as follows: get the mean embedding of each 
 
 {% include Plotly_optimal_tsne_length_plot.html %}
 ![tsne_landmark.png]({{ '/assets/images/tsne_landmark.png' | relative_url }})
-
-# Graph storm
-
-{% include Plotly_man_len_avgs.html %}
-{% include Plotly_finished_paths_categories.html %}
-{% include Plotly_appearances_in_paths_versus_degree.html %}
-![PageRankTop80.png]({{ '/assets/images/PageRankTop80.png' | relative_url }})
-![count_vs_degree.png]({{ '/assets/images/count_vs_degree.png' | relative_url }})
-{% include Plotly_network_higher_degree.html %}
-{% include Plotly_avg_lengths.html %}
-{% include Plotly_distr_finished_path_length_25_humans.html %}
-{% include Plotly_normalized_category_counts_unfinished.html %}
-![perfect_count_vs_degree.png]({{ '/assets/images/perfect_count_vs_degree.png' | relative_url }})
-![histogram_shortest_optimal.png]({{ '/assets/images/histogram_shortest_optimal.png' | relative_url }})
-{% include Plotly_Average_Finished_Path_Length_by_Category_of_Machine_vs_Man.html %}
-![histogram_landmark.png]({{ '/assets/images/histogram_landmark.png' | relative_url }})
-{% include Plotly_distr_finished_path_length_humans.html %}
-{% include Plotly_category_counts_unfinished.html %}
-![tsne_semantic_rank.png]({{ '/assets/images/tsne_semantic_rank.png' | relative_url }})
-{% include Plotly_category_counts_finished.html %}
-![DegreeTop.png]({{ '/assets/images/DegreeTop.png' | relative_url }})
-{% include Plotlu_distr_cat.html %}
-![HigherDegree60.png]({{ '/assets/images/HigherDegree60.png' | relative_url }})
-![perfect_count_vs_pagerank.png]({{ '/assets/images/perfect_count_vs_pagerank.png' | relative_url }})
-{% include Plotly_unfinished_paths_categories.html %}
-{% include Plotly_counts_graph.html %}
-{% include Plotly_normalized_category_counts_finished.html %}
-{% include Plotly_man_v_mac.html %}
-{% include Plotly_PageRank40.html %}
-![human_count_vs_degree.png]({{ '/assets/images/human_count_vs_degree.png' | relative_url }})
-{% include Plotly_distr_cat.html %}
-![PageRankArtAboveAverage.png]({{ '/assets/images/PageRankArtAboveAverage.png' | relative_url }})
-![histogram_human_lengths.png]({{ '/assets/images/histogram_human_lengths.png' | relative_url }})
 ![tsne_optimal.png]({{ '/assets/images/tsne_optimal.png' | relative_url }})
-![human_pagerank_vs_count.png]({{ '/assets/images/human_pagerank_vs_count.png' | relative_url }})
+![tsne_semantic.png]({{ '/assets/images/tsne_semantic.png' | relative_url }})
 
-![ols1_degree_count.png]({{ '/assets/images/ols1_degree_count.png' | relative_url }})
-![ols2_degree_value.png]({{ '/assets/images/ols2_degree_value.png' | relative_url }})
-![ols3_pagerank_count.png]({{ '/assets/images/ols3_pagerank_count.png' | relative_url }})
-![ols4_pagerank_value.png]({{ '/assets/images/ols4_pagerank_value.png' | relative_url }})
 
 This analysis is not particularly interesting for neither landmark, nor for the optimal value. It just resembles a blob of colors, nothing of note. This is interesting, as it means that the shortest path has almost nothing to do with semantic information. We have no way of characterizing path data from these methods, at least meaning wise.
 
 The really interesting insight comes from the semantic embedding. We can notice that the elements that have a length of 24, which is the maximal allowed by this method, tend to be clustered together. It is also important to note that this is the mean embedding, so it is not an artifact of summing up the elements.
-
-
 
 ## One more thing
 Can the machine do some of the unfinished paths that man couldn’t?
@@ -214,6 +177,7 @@ The real interesting ones were the ones where no path was found whatsoever. So t
 To see the possible issues, we checked the outgoing nodes for the first element, and the incoming nodes for the second one. In the three cases, we found that the issue was with the incoming paths. In particular, 'Final_Fantasy_%28video_game%29’ and ‘Portuguese_Communist_Party’ only have a node that points towards them. For the case of 'Final_Fantasy_%28video_game%29’, this node has no nodes pointing towards it, and for ‘Portuguese_Communist_Party’, this node is only pointed to by ‘Portuguese_Communist_Party’ itself. So these nodes are for sure not reachable by anything else.
 
 This means that our method was able to find at least some path connecting all elements, no matter what. Which is great!
+
 
 ## Future work
 Due to time limits, we couldn’t do anything. There is also more work that can be done on doing additional research.

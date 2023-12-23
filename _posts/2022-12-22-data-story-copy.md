@@ -129,7 +129,6 @@ We will plot the histogram of the frequencies. We will plot the one for the huma
 
 {% include Plotly_hist_landmark.html %}
 {% include Plotly_hist_semrank.html %}
-{% include Plotly_hist_human.html %}
 
 The first thing to note is that for the SemanticRank approach there is a peak at 25. This is because the method had a built-in system to force it to stop searching after that value. This was to make the method manageable to run.
 

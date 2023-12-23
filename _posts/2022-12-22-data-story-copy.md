@@ -41,7 +41,7 @@ PageRank computes a ranking of the nodes in the graph based on the structure of 
 {% include Plotly_PageRank40_ordered.html %}
 {% include Plotly_network_pagerank.html %}
 
-# Study of Man 
+# Study of the Man 
 
 ## Path information
 

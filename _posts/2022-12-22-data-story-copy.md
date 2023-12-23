@@ -32,7 +32,6 @@ The first part of the game we analyze is the degree of the nodes. The degree of 
 
 Let’s visualize what the nodes with the highest degree look like.
 
-![HigherDegree60.png]({{ '/assets/images/HigherDegree60.png' | relative_url }})
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 
@@ -87,7 +86,6 @@ This is something that can be used in our AI, and will be taken into account.
 
 Although we have already found that these hubs are actually very relevant, we want to explore if any other definitions are also valid. Namely, we want to see if the pagerank has an important correlation between the two values. After the regression analysis (Adj. R-squared: 0.616), we obtain that values are slightly higher between humans and PageRank, which is interesting.
 
-![count_vs_degree.png]({{ '/assets/images/count_vs_degree.png' | relative_url }})
 
 By comparison, PageRank has a slightly lower r squared score when it comes to the actual shortest path (0.507). This is a bit bizarre as PageRank has more info and is a more robust metric. It is still valid, it still has a high correlation and is still a decent explanation. But it is worse than just using the default degree. A possible explanation for this behavior is that Wikipedia articles (nodes) with a high PageRank are general topics, so it can be more challenging to find links to more specific topics, which are likely to be the target articles.
 
@@ -149,9 +147,6 @@ Based on some research… no. At least, no easy way was found.
 We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the Landmark, PageRank, and the optimal values. These are the plots that we obtained:
 
 {% include Plotly_optimal_tsne_length_plot.html %}
-![tsne_landmark.png]({{ '/assets/images/tsne_landmark.png' | relative_url }})
-![tsne_optimal.png]({{ '/assets/images/tsne_optimal.png' | relative_url }})
-![tsne_semantic_rank.png]({{ '/assets/images/tsne_semantic_rank.png' | relative_url }})
 
 
 This analysis is not particularly interesting for neither landmark, nor for the optimal value. It just resembles a blob of colors, nothing of note. This is interesting, as it means that the shortest path has almost nothing to do with semantic information. We have no way of characterizing path data from these methods, at least meaning wise.

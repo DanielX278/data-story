@@ -151,7 +151,7 @@ We did come up with an idea which is as follows: get the mean embedding of each 
 {% include Plotly_optimal_tsne_length_plot.html %}
 ![tsne_landmark.png]({{ '/assets/images/tsne_landmark.png' | relative_url }})
 ![tsne_optimal.png]({{ '/assets/images/tsne_optimal.png' | relative_url }})
-![tsne_semantic.png]({{ '/assets/images/tsne_semantic.png' | relative_url }})
+![tsne_semantic_rank.png]({{ '/assets/images/tsne_semantic_rank.png' | relative_url }})
 
 
 This analysis is not particularly interesting for neither landmark, nor for the optimal value. It just resembles a blob of colors, nothing of note. This is interesting, as it means that the shortest path has almost nothing to do with semantic information. We have no way of characterizing path data from these methods, at least meaning wise.

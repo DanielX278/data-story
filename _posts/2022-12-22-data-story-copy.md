@@ -82,6 +82,8 @@ Based on the regression analysis, there is a correlation between how often a nod
 
 Now, does this actually hold for the shortest paths?
 
+![perfect_count_vs_degree.png]({{ '/assets/images/perfect_count_vs_degree.png' | relative_url }})
+
 Performing again a regression analysis and obtaining an adjusted R squared of 0.546, lower than before, we conclude that it is still quite high in this case. Most importantly, it also shows that there is a correlation between the degree and the number of times it appears in a shortest path! This implies that hubs are actually very helpful for finding out the path between two nodes, and are commonly used.
 
 This is something that can be used in our AI, and will be taken into account.

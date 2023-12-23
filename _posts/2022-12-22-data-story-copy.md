@@ -74,6 +74,7 @@ We note that the original authors only describe hubs as those articles with a hi
 First off, do humans actually use hubs? We will plot the appearance count, versus the degree of the nodes. For the count, we ignore a node if it is a source or a target node. Additionally, we only use finished paths.
 
 {% include Plotly_appearances_in_paths_versus_degree.html %}
+![human_count_vs_degree.png]({{ '/assets/images/human_count_vs_degree.png' | relative_url }})
 
 You can see there is some relation, and the fitted line gives high values. Does this hold up statistically? We did a regression analysis, finding the relation between count and degree. 
 

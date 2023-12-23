@@ -36,7 +36,7 @@ Let’s visualize what the nodes with the highest degree look like.
 
 We also want to find information about the PageRank of the nodes. This is because PageRank provides more detailed information than just the edge count, by allowing us to understand how well connected a node truly is to the rest.
 
-PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages.
+PageRank computes a ranking of the nodes in the graph based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages. The idea is to rank a website according to its importance, and its importance is based on the importance of the incoming links.
 
 {% include Plotly_PageRank40_ordered.html %}
 {% include Plotly_network_pagerank.html %}

@@ -132,6 +132,7 @@ We will plot the histogram of the frequencies. We will plot the one for the huma
 
 {% include Plotly_hist_landmark.html %}
 {% include Plotly_hist_semrank.html %}
+{% include Plotly_hist_human.html %}
 
 The first thing to note is that for the SemanticRank approach there is a peak at 25. This is because the method had a built-in system to force it to stop searching after that value. This was to make the method manageable to run.
 
@@ -151,7 +152,6 @@ Based on some research… no. At least, no easy way was found.
 
 We did come up with an idea which is as follows: get the mean embedding of each element in the path, pass it through TSNE, and then plot it with the lengths. Ideally this provides some information, as TSNE was designed to keep some of the distance relations. We do lose some of the data of order, but no other simple alternative was found. We did the plots with the Landmark, PageRank, and the optimal values. These are the plots that we obtained:
 
-{% include Plotly_optimal_tsne_length_plot.html %}
 ![tsne_landmark.png]({{ '/assets/images/tsne_landmark.png' | relative_url }})
 ![tsne_optimal.png]({{ '/assets/images/tsne_optimal.png' | relative_url }})
 ![tsne_semantic_rank.png]({{ '/assets/images/tsne_semantic_rank.png' | relative_url }})
